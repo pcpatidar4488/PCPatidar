@@ -1,7 +1,12 @@
-dvxvcfvb
-ghhjhj
+git config --global user.name "Punamchand"
+git config --global user.email "pcpatidar.4488@gmail.com"
 
+git init PCrepo //make Repository
+cd PCrepo      
+touch comp.html //make file
+git status
+git add comp.html
+git commit -m "First commit" comp.html
+git push origin master
 
-
-
-jasdsdfkjdfgklfglkfghmgf
+git clone url
