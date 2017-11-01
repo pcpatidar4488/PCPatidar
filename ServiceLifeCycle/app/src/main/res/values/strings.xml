@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">ServiceLifeCycle</string>
+    <string name="Buttton_Start">Service Start</string>
+    <string name="Button_Stop">Service Stop</string>
+</resources>

@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    android:layout_width="match_parent"
+    android:background="#020302"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:orientation="vertical"
+            android:padding="10dp"
+            android:layout_height="match_parent">
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginTop="20dp"
+                android:padding="1dp"
+                android:background="#75CE02"
+                android:inputType="textPersonName"
+                android:hint="Name"
+                />
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginTop="15dp"
+                android:padding="1dp"
+                android:background="#75CE02"
+                android:inputType="phone"
+                android:hint="Phone No."
+                />
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginTop="20dp"
+                android:padding="1dp"
+                android:background="#75CE02"
+                android:inputType="textEmailAddress"
+                android:hint="Email"
+                />
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginTop="20dp"
+                android:padding="1dp"
+                android:background="#75CE02"
+                android:inputType="textPostalAddress"
+                android:hint="Address"
+                />
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginTop="20dp"
+                android:padding="1dp"
+                android:background="#75CE02"
+                android:inputType="textPostalAddress"
+                android:hint="State"
+                />
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginTop="20dp"
+                android:padding="1dp"
+                android:background="#75CE02"
+                android:hint="Country"
+                android:inputType="textPostalAddress"
+                />
+
+            <Button
+                android:id="@+id/bRegister"
+                android:layout_width="wrap_content"
+                android:text="SUBMIT"
+                android:layout_gravity="center"
+                android:background="#75CE02"
+                android:layout_marginTop="20dp"
+                android:layout_height="wrap_content"/>
+        </LinearLayout>
+
+    </ScrollView>
+</LinearLayout>
