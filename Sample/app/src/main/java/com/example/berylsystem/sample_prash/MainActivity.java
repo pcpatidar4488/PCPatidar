@@ -6,8 +6,14 @@ import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.ListAdapter;
+import android.widget.ListView;
+import android.widget.Toast;
+
+import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -36,6 +42,26 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(i);
             }
         });
+
+       /* ListView listview =(ListView) findViewById(R.id.listView);
+        ArrayList<String> theList = new ArrayList<>();
+        Cursor data = databaseHelper.getAllData();
+
+        if(data.getCount()==0)
+        {
+            Toast.makeText(MainActivity.this, "The Database was empty", Toast.LENGTH_LONG).show();
+        }
+        else
+        {
+            while (data.moveToNext()){
+                theList.add(data.getString(0));
+                theList.add(data.getString(1));
+                ListAdapter listAdapter = new ArrayAdapter<>(this,android.R.layout.simple_list_item_1);
+
+            }
+        }*/
+
+
     }
 
     public void viewAll() {

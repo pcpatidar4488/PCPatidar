@@ -16,7 +16,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".Ctreatepage" />
-        <activity android:name=".DatabaseHelper"></activity>
+        <activity android:name=".DatabaseHelper" />
     </application>
 
 </manifest>

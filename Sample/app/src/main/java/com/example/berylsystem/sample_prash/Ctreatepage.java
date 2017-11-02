@@ -1,6 +1,7 @@
 package com.example.berylsystem.sample_prash;
 
 import android.content.Intent;
+import android.os.ParcelUuid;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -10,7 +11,7 @@ import android.widget.Toast;
 
 public class Ctreatepage extends AppCompatActivity {
 
-    EditText name,mobile_number,etclass,rollno;
+    EditText name, mobile_number, etclass, rollno;
     Button save;
 
     private DatabaseHelper databaseHelper;
@@ -20,7 +21,7 @@ public class Ctreatepage extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_ctreatepage);
 
-        databaseHelper=new DatabaseHelper(this);
+        databaseHelper = new DatabaseHelper(this);
 
         name = (EditText) findViewById(R.id.name);
         rollno = (EditText) findViewById(R.id.rollno);
@@ -40,10 +41,6 @@ public class Ctreatepage extends AppCompatActivity {
                 if(result)
                 {
                     Toast.makeText(Ctreatepage.this, "Data Inserted", Toast.LENGTH_SHORT).show();
-                    name.setText(" ");
-                    mobile_number.setText(" ");
-                    etclass.setText(" ");
-                    rollno.setText(" ");
                     Intent i =new Intent(Ctreatepage.this,MainActivity.class);
                     startActivity(i);
                 }
@@ -52,4 +49,4 @@ public class Ctreatepage extends AppCompatActivity {
             }
         });
     }
-    }
+}
