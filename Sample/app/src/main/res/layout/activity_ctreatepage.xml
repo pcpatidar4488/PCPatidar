@@ -9,4 +9,42 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.example.berylsystem.sample_prash.Ctreatepage">
 
+    <EditText
+        android:id="@+id/name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="text"
+        android:hint="Name"/>
+
+    <EditText
+        android:id="@+id/rollno"
+        android:layout_below="@+id/name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="number"
+        android:hint="Roll no"/>
+
+    <EditText
+        android:id="@+id/mobile_no"
+        android:layout_below="@+id/rollno"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="phone"
+        android:hint="Contact number"/>
+
+    <EditText
+        android:id="@+id/etclass"
+        android:layout_below="@+id/mobile_no"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="text"
+        android:hint="Class name"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_below="@+id/etclass"
+        android:layout_height="wrap_content"
+        android:id="@+id/save"
+        android:text="SUBMIT"/>
+
 </RelativeLayout>

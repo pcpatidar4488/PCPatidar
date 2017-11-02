@@ -1,12 +1,16 @@
-git config --global user.name "Punamchand"
-git config --global user.email "pcpatidar.4488@gmail.com"
+1.  git config --global user.name "Punamchand"
+2.  git config --global user.email "pcpatidar.4488@gmail.com"
 
-git init PCrepo //make Repository
-cd PCrepo      
-touch comp.html //make file
-git status
-git add comp.html
-git commit -m "First commit" comp.html
-git push origin master
+3.  git init PCrepo //make Repository
+4.  cd PCrepo      
+5.  touch comp.html //make folder
+6.  git status
+7.  git add comp.html
+8.  git commit -m "First commit" comp.html
+9.  git push origin master
+10. git clone url
+--------------
 
-git clone url
+1. git branch file name     // create new branch
+2. git checkout branchname //switch to branch
+
