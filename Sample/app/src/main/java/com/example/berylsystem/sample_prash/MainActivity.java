@@ -38,8 +38,6 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-
-
     public void viewAll() {
         btViewAll.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -33,7 +33,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         onCreate(db);
     }
 
-    public boolean insertData(String name, int rollno,int mobile_number, String etclass) {
+    public boolean insertData(String name, int rollno,String mobile_number, String etclass) {
 
         SQLiteDatabase db = this.getWritableDatabase();
 

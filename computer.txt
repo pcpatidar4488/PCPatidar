@@ -9,8 +9,18 @@
 8.  git commit -m "First commit" comp.html
 9.  git push origin master
 10. git clone url
---------------
+-------------------------------------------------------------------
 
 1. git branch file name     // create new branch
 2. git checkout branchname //switch to branch
+
+-------------------------------------------------------------------
+
+Delete File Local and Remote File
+
+rm file_name
+git status
+git commit -m "Deleted file" file_name
+
+-------------------------------------------------------------------
 

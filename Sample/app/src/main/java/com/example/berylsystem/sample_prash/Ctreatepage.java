@@ -1,5 +1,6 @@
 package com.example.berylsystem.sample_prash;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -34,7 +35,7 @@ public class Ctreatepage extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                boolean result = databaseHelper.insertData(name.getText().toString(),Integer.parseInt(rollno.getText().toString()),Integer.parseInt(mobile_number.getText().toString()),etclass.getText().toString());
+                boolean result = databaseHelper.insertData(name.getText().toString(),Integer.parseInt(rollno.getText().toString()),mobile_number.getText().toString(),etclass.getText().toString());
 
                 if(result)
                 {
@@ -43,6 +44,8 @@ public class Ctreatepage extends AppCompatActivity {
                     mobile_number.setText(" ");
                     etclass.setText(" ");
                     rollno.setText(" ");
+                    Intent i =new Intent(Ctreatepage.this,MainActivity.class);
+                    startActivity(i);
                 }
                 else
                     Toast.makeText(Ctreatepage.this, "Data not Inserted...Please try again", Toast.LENGTH_SHORT).show();
