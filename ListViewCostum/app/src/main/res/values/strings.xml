@@ -1,0 +1,19 @@
+<resources>
+    <string name="app_name">ListViewCostum</string>
+    <string-array name="titles">
+        <item><b>Dashboard</b></item>
+        <item>Invoicing</item>
+        <item>Inventory</item>
+        <item>30+ Comprehensive Reports</item>
+        <item>Sync Across Devices</item>
+    </string-array>
+
+    <string-array name="descriptions">
+        <item>Always know where your business stands.</item>
+        <item>Create &amp; send estimates/invoices via email/whatsApp</item>
+        <item>Create inventory/Services,track inwards/outwards of item</item>
+        <item>Analyse your business with detailed reports &amp; metrics</item>
+        <item>Sync via your Dropbox account across your mobile &amp; PC</item>
+    </string-array>
+
+</resources>
