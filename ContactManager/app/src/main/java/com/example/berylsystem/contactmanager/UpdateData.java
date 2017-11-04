@@ -31,9 +31,9 @@ public class UpdateData extends AppCompatActivity {
             public void onClick(View view) {
                 databaseHelper.updateData(mobile.getText().toString(),name.getText().toString(),email.getText().toString());
                 Toast.makeText(UpdateData.this, "Data is Update", Toast.LENGTH_SHORT).show();
-                name.setText(" ");
+               /* name.setText(" ");
                 mobile.setText(" ");
-                email.setText(" ");
+                email.setText(" ");*/
             }
         });
     }

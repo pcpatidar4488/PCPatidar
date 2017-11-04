@@ -12,7 +12,6 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-
 public class DatabaseHelper extends SQLiteOpenHelper {
 
     private static final String DTATABASE_NAME = "students.db";
@@ -24,7 +23,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        db.execSQL("CREATE TABLE " + TABLE_NAME + "(NAME TEXT,ROLL_NO INTERGER PRIMARY KEY,MOBILE_NUMBER INTEGER,CLASS TEXT)");
+        db.execSQL("CREATE TABLE " + TABLE_NAME + "(ID INTERGER PRIMARY KEY,NAME TEXT,ROLL_NO NONE ,MOBILE_NUMBER INTEGER,CLASS TEXT)");
     }
 
     @Override
@@ -33,7 +32,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         onCreate(db);
     }
 
-    public boolean insertData(String name, int rollno,String mobile_number, String etclass) {
+    public boolean insertData(String name, String rollno,String mobile_number, String etclass) {
 
         SQLiteDatabase db = this.getWritableDatabase();
 
@@ -50,10 +49,17 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         else
             return true;
     }
+
+
+  /*  public Cursor getInformation()
+    {
+        Cursor cursor = getWritableDatabase().query("students",new String[] {"NAME", "ROLL_NO"},null, null, null, null, null);
+
+        return cursor;
+    }*/
     public Cursor getAllData(){
         SQLiteDatabase db = this.getWritableDatabase();
-        Cursor res = db.rawQuery("select * from " +TABLE_NAME,null);
-        return res;
+        Cursor cursor = db.rawQuery("select * from " +TABLE_NAME,null);
+        return cursor;
     }
-
 }

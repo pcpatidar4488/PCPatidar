@@ -5,6 +5,9 @@ import android.database.Cursor;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -18,9 +21,6 @@ import java.util.ArrayList;
 public class MainActivity extends AppCompatActivity {
 
     DatabaseHelper databaseHelper;
-
-    ImageButton imageButton;
-    Button btViewAll;
     Button submit;
 
     @Override
@@ -28,43 +28,43 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        android.support.v7.app.ActionBar actionBar = getSupportActionBar();
+        actionBar.setLogo(R.drawable.ic_add_circle_outline_black_24dp);
+        actionBar.setDisplayUseLogoEnabled(true);
+        actionBar.setDefaultDisplayHomeAsUpEnabled(true);
+
         databaseHelper = new DatabaseHelper(this);
+        //viewAll();
+    }
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater menuInflater = getMenuInflater();
+        menuInflater.inflate(R.menu.activity_main_action, menu);
 
-        btViewAll = (Button) findViewById(R.id.btview);
-        imageButton = (ImageButton) findViewById(R.id.imagebutton);
-
-        viewAll();
-
-        imageButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent i =new Intent(MainActivity.this,Ctreatepage.class);
-                startActivity(i);
-            }
-        });
-
-       /* ListView listview =(ListView) findViewById(R.id.listView);
-        ArrayList<String> theList = new ArrayList<>();
-        Cursor data = databaseHelper.getAllData();
-
-        if(data.getCount()==0)
-        {
-            Toast.makeText(MainActivity.this, "The Database was empty", Toast.LENGTH_LONG).show();
-        }
-        else
-        {
-            while (data.moveToNext()){
-                theList.add(data.getString(0));
-                theList.add(data.getString(1));
-                ListAdapter listAdapter = new ArrayAdapter<>(this,android.R.layout.simple_list_item_1);
-
-            }
-        }*/
-
-
+        return super.onCreateOptionsMenu(menu);
     }
 
-    public void viewAll() {
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.icon_id:
+                //Toast.makeText(MainActivity.this, "Selected", Toast.LENGTH_SHORT).show();
+                Intent i = new Intent(MainActivity.this, Ctreatepage.class);
+                startActivity(i);
+        }
+        return super.onOptionsItemSelected(item);
+    }
+}
+
+
+
+
+
+
+
+// View All data in a Box
+
+   /* public void viewAll() {
         btViewAll.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -93,5 +93,4 @@ public class MainActivity extends AppCompatActivity {
         builder.setTitle(title);
         builder.setMessage(Message);
         builder.show();
-    }
-}
+    }*/

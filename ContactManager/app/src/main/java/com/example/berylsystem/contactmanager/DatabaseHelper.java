@@ -77,7 +77,5 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         contentValues.put("NAME", name);
         contentValues.put("EMAIL_ID", email_id);
         db.update(TABLE_NAME,contentValues,"MOBILE_NUMBER = '"+mobile_number+"'",null);
-
-
     }
 }
