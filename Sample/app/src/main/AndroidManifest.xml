@@ -16,7 +16,6 @@
             </intent-filter>
         </activity>
         <activity android:name=".Ctreatepage" />
-        <activity android:name=".DataListActivity" />
     </application>
 
 </manifest>

@@ -12,8 +12,8 @@ import android.widget.Toast;
 public class Ctreatepage extends AppCompatActivity {
 
     boolean result;
-    EditText name, mobile_number, etclass, rollno,mobile;
-    Button save;
+    EditText name, mobile_number, etclass, rollno;
+    Button save, update;
     private DatabaseHelper databaseHelper;
 
     @Override
@@ -30,47 +30,104 @@ public class Ctreatepage extends AppCompatActivity {
 
         save = (Button) findViewById(R.id.save);
 
-        //Value pass
-        String name1=getIntent().getStringExtra("name");
+        update = (Button) findViewById(R.id.update);
+
+
+        //Value pas
+        //final String my_id = getIntent().getStringExtra("id");
+
+        String name1 = getIntent().getStringExtra("name");
         name.setText(name1);
-        String rollno1=getIntent().getStringExtra("rollno");
+        String rollno1 = getIntent().getStringExtra("rollno");
         rollno.setText(rollno1);
 
-        /*String mobile1=getIntent().getStringExtra("mobile");
-        mobile.setText(mobile1);
+        final String mobile1 = getIntent().getStringExtra("mobile_no");
+        mobile_number.setText(mobile1);
+        String etclass1 = getIntent().getStringExtra("etclass");
+        etclass.setText(etclass1);
 
-        String etclass1=getIntent().getStringExtra("etclass");
-        etclass.setText(etclass1);*/
+       /* Toast.makeText(Ctreatepage.this, ""+mobile1, Toast.LENGTH_LONG).show();
+        Toast.makeText(Ctreatepage.this, ""+etclass1, Toast.LENGTH_LONG).show();*/
 
         //end
 
 
-
-
         databaseHelper = new DatabaseHelper(this);
 
-        save.setOnClickListener(new View.OnClickListener() {
+        Boolean button = getIntent().getExtras().getBoolean("pc");
+        String aname=name.getText().toString();
+        String arollno=rollno.getText().toString();
+        String amobile=mobile_number.getText().toString();
+
+
+        if (button) {
+
+            update.setVisibility(View.GONE);
+
+
+                save.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+
+                        result = databaseHelper.insertData(name.getText().toString(), rollno.getText().toString(), mobile_number.getText().toString(), etclass.getText().toString());
+
+                        if (result && (!name.getText().toString().equals("") && !rollno.getText().toString().equals("") && !mobile_number.getText().toString().equals(""))) {
+                            Toast.makeText(Ctreatepage.this, "Data Inserted", Toast.LENGTH_SHORT).show();
+                            Intent i = new Intent(Ctreatepage.this, MainActivity.class);
+                            startActivity(i);
+                            name.setText(" ");
+                            rollno.setText(" ");
+                            mobile_number.setText(" ");
+                            etclass.setText(" ");
+                        } else
+                            Toast.makeText(Ctreatepage.this, "Data not Inserted...Please enter Data", Toast.LENGTH_SHORT).show();
+                    }
+                });
+        }
+        else
+        {
+            save.setVisibility(View.GONE);
+                update.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+
+                        if(!name.getText().toString().equals("") && !rollno.getText().toString().equals("") && !mobile_number.getText().toString().equals("")) {
+                            databaseHelper.updateData(name.getText().toString(), rollno.getText().toString(), mobile_number.getText().toString(), etclass.getText().toString());
+                            Toast.makeText(Ctreatepage.this, "Data is Update", Toast.LENGTH_SHORT).show();
+                            name.setText(" ");
+                            rollno.setText(" ");
+                            mobile_number.setText(" ");
+                            etclass.setText(" ");
+                            Intent i = new Intent(Ctreatepage.this, MainActivity.class);
+                            startActivity(i);
+                        }
+                        else
+                            Toast.makeText(Ctreatepage.this, "Data not Inserted...Please enter Data", Toast.LENGTH_SHORT).show();
+                    }
+                });
+        }
+
+        rollno.setOnFocusChangeListener(new View.OnFocusChangeListener() {
             @Override
-            public void onClick(View v) {
-
-                result = databaseHelper.insertData(name.getText().toString(),rollno.getText().toString(),mobile_number.getText().toString(),etclass.getText().toString());
-
-                if(result)
+            public void onFocusChange(View view, boolean b) {
+                if(rollno.getText().length()<6)
                 {
-                    Toast.makeText(Ctreatepage.this, "Data Inserted", Toast.LENGTH_SHORT).show();
-                    Intent i =new Intent(Ctreatepage.this,DataListActivity.class);
-                    startActivity(i);
-                    name.setText(" ");
-                    rollno.setText(" ");
-                    mobile_number.setText(" ");
-                    etclass.setText(" ");
+                    rollno.setError("Please enter Valid Roll no");
                 }
-                else
-                    Toast.makeText(Ctreatepage.this, "Data not Inserted...Please try again", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        mobile_number.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View view, boolean b) {
+                if(mobile_number.getText().length()<10)
+                {
+                    mobile_number.setError("Please enter valid mobile no");
+                }
             }
         });
     }
-
+}
 
    /* public void viewContact(View view)
     {
@@ -80,4 +137,3 @@ public class Ctreatepage extends AppCompatActivity {
             startActivity(i);*//*
         }
     }*/
-}

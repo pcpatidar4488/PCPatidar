@@ -6,6 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Adapter;
 import android.widget.ArrayAdapter;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 import com.example.berylsystem.DataProvider;
@@ -23,7 +24,8 @@ public class ListDataAdapter extends ArrayAdapter {
 
     static class LayoutHandler
     {
-        TextView NAME,ROLLNO;
+        TextView NAME,ROLLNO,MOBILE,ETCLASS;
+        ImageButton removeDataButton;
     }
 
 
@@ -55,15 +57,25 @@ public class ListDataAdapter extends ArrayAdapter {
             layoutHandler = new LayoutHandler();
             layoutHandler.NAME=(TextView) row.findViewById(R.id.text_name);
             layoutHandler.ROLLNO=(TextView) row.findViewById(R.id.text_rollno);
+            layoutHandler.MOBILE=(TextView) row.findViewById(R.id.text_mobile);
+            layoutHandler.ETCLASS=(TextView) row.findViewById(R.id.text_etclass);
             row.setTag(layoutHandler);
         }
         else
         {
             layoutHandler=(LayoutHandler) row.getTag();
+            //layoutHandler.removeDataButton=(ImageButton) row.findViewById(R.id.removeButton);
         }
         DataProvider dataProvider = (DataProvider) this.getItem(position);
         layoutHandler.NAME.setText(dataProvider.getName());
         layoutHandler.ROLLNO.setText(dataProvider.getRollno());
+        layoutHandler.MOBILE.setText(dataProvider.getMobile());
+        layoutHandler.ETCLASS.setText(dataProvider.getEtclass());
+
+        //layoutHandler.removeDataButton=(ImageButton) row.findViewById(R.id.removeButton);
+
+
+
         return row;
     }
 }

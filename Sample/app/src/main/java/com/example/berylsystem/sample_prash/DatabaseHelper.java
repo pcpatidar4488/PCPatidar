@@ -23,7 +23,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        db.execSQL("CREATE TABLE " + TABLE_NAME + "(ID INTERGER PRIMARY KEY,NAME TEXT,ROLL_NO NONE ,MOBILE_NUMBER INTEGER,CLASS TEXT)");
+        db.execSQL("CREATE TABLE " + TABLE_NAME + "(ID INTERGER PRIMARY KEY,NAME TEXT,ROLL_NO NONE ,MOBILE_NUMBER TEXT,CLASS TEXT)");
     }
 
     @Override
@@ -50,6 +50,16 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             return true;
     }
 
+    public void updateData(String name,String rollno,String mobile,String etclass){
+        SQLiteDatabase db = this.getWritableDatabase();
+
+        ContentValues contentValues = new ContentValues();
+        contentValues.put("NAME", name);
+       // contentValues.put("ROLL_NO", rollno);
+        contentValues.put("MOBILE_NUMBER",mobile);
+        contentValues.put("CLASS",etclass);
+       db.update(TABLE_NAME,contentValues,"ROLL_NO = '"+rollno+"'",null);
+    }
 
   /*  public Cursor getInformation()
     {
@@ -57,9 +67,11 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
         return cursor;
     }*/
+
     public Cursor getAllData(){
         SQLiteDatabase db = this.getWritableDatabase();
         Cursor cursor = db.rawQuery("select * from " +TABLE_NAME,null);
         return cursor;
     }
+
 }
