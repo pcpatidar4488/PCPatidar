@@ -33,6 +33,7 @@ public class MainActivity extends AppCompatActivity {
     DatabaseHelper databaseHelper;
     Cursor cursor;
     ListDataAdapter listDataAdapter;
+    LinearLayout layout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,6 +55,8 @@ public class MainActivity extends AppCompatActivity {
         cursor = databaseHelper.getAllData();
 
         //Click On List Item
+
+
         listView.setOnItemClickListener(new ItemList());
 
         if(cursor.moveToFirst())
@@ -70,12 +73,10 @@ public class MainActivity extends AppCompatActivity {
                 DataProvider dataProvider = new DataProvider(idi,name,rollno,mob,etclass);
                 listDataAdapter.add(dataProvider);
             }while (cursor.moveToNext());
-
         }
 
         //viewAll();
     }
-
 
     class ItemList implements AdapterView.OnItemClickListener
     {
